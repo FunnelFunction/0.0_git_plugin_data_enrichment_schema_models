@@ -1,0 +1,218 @@
+{
+  "schema_name": "google_business_profile_schema",
+  "schema_version": "1.0.0",
+  "last_updated": "2025-01-01",
+  "platform": "Google Business Profile",
+  "execution_model": "1.2_dynamic_browser_javascript_render_model",
+
+  "selectors": {
+    "business_name": {
+      "description": "Main business name heading",
+      "css": "h1.DUwDvf.lfPIob",
+      "xpath": "//h1[contains(@class, 'DUwDvf')]",
+      "fallback_css": "div[role='main'] h1",
+      "attribute": "textContent"
+    },
+
+    "rating_stars": {
+      "description": "Overall star rating",
+      "css": "div.F7nice > span:first-child > span:first-child",
+      "xpath": "//div[contains(@class, 'F7nice')]/span[1]/span[1]",
+      "attribute": "textContent",
+      "transform": "parseFloat"
+    },
+
+    "review_count": {
+      "description": "Total number of reviews",
+      "css": "div.F7nice > span:nth-child(2) > span > span",
+      "xpath": "//div[contains(@class, 'F7nice')]/span[2]/span/span",
+      "fallback_css": "button[jsaction*='reviews'] span",
+      "attribute": "textContent",
+      "transform": "extractNumber"
+    },
+
+    "category_primary": {
+      "description": "Primary business category",
+      "css": "button[jsaction*='category'] > div.fontBodyMedium",
+      "xpath": "//button[contains(@jsaction, 'category')]/div[contains(@class, 'fontBodyMedium')]",
+      "fallback_css": "span.DkEaL",
+      "attribute": "textContent"
+    },
+
+    "price_level": {
+      "description": "Price level indicator",
+      "css": "span[aria-label*='Price'] span",
+      "xpath": "//span[contains(@aria-label, 'Price')]/span",
+      "attribute": "textContent"
+    },
+
+    "address_full": {
+      "description": "Full formatted address",
+      "css": "button[data-item-id='address'] div.fontBodyMedium",
+      "xpath": "//button[@data-item-id='address']//div[contains(@class, 'fontBodyMedium')]",
+      "fallback_css": "button[data-tooltip='Copy address'] + div",
+      "attribute": "textContent"
+    },
+
+    "phone_number": {
+      "description": "Primary phone number",
+      "css": "button[data-item-id*='phone:tel'] div.fontBodyMedium",
+      "xpath": "//button[contains(@data-item-id, 'phone:tel')]//div[contains(@class, 'fontBodyMedium')]",
+      "fallback_css": "button[data-tooltip='Copy phone number'] + div",
+      "attribute": "textContent"
+    },
+
+    "website_url": {
+      "description": "Business website URL",
+      "css": "a[data-item-id='authority']",
+      "xpath": "//a[@data-item-id='authority']",
+      "attribute": "href"
+    },
+
+    "website_display": {
+      "description": "Displayed website text",
+      "css": "a[data-item-id='authority'] div.fontBodyMedium",
+      "xpath": "//a[@data-item-id='authority']//div[contains(@class, 'fontBodyMedium')]",
+      "attribute": "textContent"
+    },
+
+    "hours_button": {
+      "description": "Button to expand hours",
+      "css": "button[data-item-id='oh']",
+      "xpath": "//button[@data-item-id='oh']",
+      "action": "click"
+    },
+
+    "hours_status": {
+      "description": "Current open/closed status",
+      "css": "button[data-item-id='oh'] span.ZDu9vd span",
+      "xpath": "//button[@data-item-id='oh']//span[contains(@class, 'ZDu9vd')]/span",
+      "attribute": "textContent"
+    },
+
+    "hours_table_rows": {
+      "description": "Hours table rows after expansion",
+      "css": "table.eK4R0e tr",
+      "xpath": "//table[contains(@class, 'eK4R0e')]//tr",
+      "multiple": true
+    },
+
+    "hours_day": {
+      "description": "Day name in hours row",
+      "css": "td:first-child",
+      "xpath": ".//td[1]",
+      "attribute": "textContent"
+    },
+
+    "hours_time": {
+      "description": "Time range in hours row",
+      "css": "td:last-child li",
+      "xpath": ".//td[last()]//li",
+      "attribute": "textContent",
+      "multiple": true
+    },
+
+    "plus_code": {
+      "description": "Plus Code location identifier",
+      "css": "button[data-item-id='oloc'] div.fontBodyMedium",
+      "xpath": "//button[@data-item-id='oloc']//div[contains(@class, 'fontBodyMedium')]",
+      "attribute": "textContent"
+    },
+
+    "menu_link": {
+      "description": "Menu URL for restaurants",
+      "css": "a[data-item-id*='menu']",
+      "xpath": "//a[contains(@data-item-id, 'menu')]",
+      "attribute": "href"
+    },
+
+    "reservation_link": {
+      "description": "Reservation booking URL",
+      "css": "a[data-item-id*='reserve']",
+      "xpath": "//a[contains(@data-item-id, 'reserve')]",
+      "attribute": "href"
+    },
+
+    "order_link": {
+      "description": "Online ordering URL",
+      "css": "a[data-item-id*='order']",
+      "xpath": "//a[contains(@data-item-id, 'order')]",
+      "attribute": "href"
+    },
+
+    "photos_count": {
+      "description": "Number of photos",
+      "css": "button[jsaction*='photos'] div.fontBodyMedium",
+      "xpath": "//button[contains(@jsaction, 'photos')]//div[contains(@class, 'fontBodyMedium')]",
+      "attribute": "textContent",
+      "transform": "extractNumber"
+    },
+
+    "attributes_section": {
+      "description": "Business attributes/amenities section",
+      "css": "div[aria-label*='Information'] div.iP2t7d",
+      "xpath": "//div[contains(@aria-label, 'Information')]//div[contains(@class, 'iP2t7d')]",
+      "multiple": true
+    },
+
+    "attribute_item": {
+      "description": "Individual attribute item",
+      "css": "span.hAyfc span",
+      "xpath": ".//span[contains(@class, 'hAyfc')]/span",
+      "attribute": "textContent"
+    },
+
+    "claimed_status": {
+      "description": "Business claimed/verified status",
+      "css": "span[aria-label*='Claimed']",
+      "xpath": "//span[contains(@aria-label, 'Claimed')]",
+      "attribute": "aria-label"
+    },
+
+    "coordinates_from_url": {
+      "description": "Extract coordinates from page URL",
+      "source": "page_url",
+      "pattern": "@(-?\\d+\\.\\d+),(-?\\d+\\.\\d+)",
+      "transform": "regex_extract_groups"
+    },
+
+    "place_id_from_url": {
+      "description": "Extract Place ID from page URL",
+      "source": "page_url",
+      "pattern": "!1s(0x[a-f0-9]+:[a-f0-9x]+)",
+      "transform": "regex_extract"
+    }
+  },
+
+  "action_buttons": {
+    "directions_button": {
+      "css": "button[data-value='Directions']",
+      "xpath": "//button[@data-value='Directions']"
+    },
+    "call_button": {
+      "css": "button[data-value='Call']",
+      "xpath": "//button[@data-value='Call']"
+    },
+    "save_button": {
+      "css": "button[data-value='Save']",
+      "xpath": "//button[@data-value='Save']"
+    },
+    "share_button": {
+      "css": "button[data-value='Share']",
+      "xpath": "//button[@data-value='Share']"
+    }
+  },
+
+  "wait_conditions": {
+    "profile_loaded": {
+      "description": "Wait for profile header to load",
+      "css": "h1.DUwDvf",
+      "timeout_seconds": 10
+    },
+    "hours_expanded": {
+      "description": "Wait for hours table to expand",
+      "css": "table.eK4R0e",
+      "timeout_seconds": 5
+    }
+  }
+}

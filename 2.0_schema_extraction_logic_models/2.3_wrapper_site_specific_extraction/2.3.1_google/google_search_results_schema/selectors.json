@@ -1,0 +1,302 @@
+{
+  "schema_name": "google_search_results_schema",
+  "schema_version": "1.0.0",
+  "last_updated": "2025-01-01",
+  "platform": "Google Search",
+  "execution_model": "1.2_dynamic_browser_javascript_render_model",
+
+  "selectors": {
+    "organic_results": {
+      "container": {
+        "description": "Container for organic search results",
+        "css": "div#search div.g",
+        "xpath": "//div[@id='search']//div[contains(@class, 'g')]",
+        "fallback_css": "div[data-hveid] div.g"
+      },
+
+      "title": {
+        "description": "Result title/headline",
+        "css": "h3",
+        "xpath": ".//h3",
+        "attribute": "textContent"
+      },
+
+      "url": {
+        "description": "Destination URL",
+        "css": "a[href]",
+        "xpath": ".//a[@href]",
+        "attribute": "href"
+      },
+
+      "displayed_url": {
+        "description": "Displayed URL breadcrumb",
+        "css": "cite",
+        "xpath": ".//cite",
+        "fallback_css": "div.TbwUpd.NJjxre",
+        "attribute": "textContent"
+      },
+
+      "description": {
+        "description": "Meta description snippet",
+        "css": "div[data-sncf] span",
+        "xpath": ".//div[@data-sncf]//span",
+        "fallback_css": "div.VwiC3b",
+        "attribute": "textContent"
+      },
+
+      "date_published": {
+        "description": "Publication date if shown",
+        "css": "span.LEwnzc.Sqrs4e span",
+        "xpath": ".//span[contains(@class, 'LEwnzc')]//span",
+        "attribute": "textContent"
+      }
+    },
+
+    "rich_snippets": {
+      "rating_stars": {
+        "description": "Star rating value",
+        "css": "span.fG8Fp.yz2h3c",
+        "xpath": ".//span[contains(@class, 'fG8Fp')]",
+        "attribute": "textContent"
+      },
+
+      "rating_count": {
+        "description": "Number of ratings/reviews",
+        "css": "span.HypWnf.YrbPuc",
+        "xpath": ".//span[contains(@class, 'HypWnf')]",
+        "attribute": "textContent"
+      },
+
+      "price": {
+        "description": "Product price",
+        "css": "span.LI0TWe",
+        "xpath": ".//span[contains(@class, 'LI0TWe')]",
+        "attribute": "textContent"
+      },
+
+      "in_stock": {
+        "description": "Stock availability",
+        "css": "span.LGOjhe",
+        "xpath": ".//span[contains(@class, 'LGOjhe')]",
+        "attribute": "textContent"
+      }
+    },
+
+    "ads": {
+      "container": {
+        "description": "Container for sponsored/ad results",
+        "css": "div[data-text-ad] ",
+        "xpath": "//div[@data-text-ad]",
+        "fallback_css": "div.uEierd"
+      },
+
+      "title": {
+        "description": "Ad headline",
+        "css": "div[role='heading']",
+        "xpath": ".//div[@role='heading']",
+        "attribute": "textContent"
+      },
+
+      "url": {
+        "description": "Ad destination URL",
+        "css": "a[data-rw]",
+        "xpath": ".//a[@data-rw]",
+        "attribute": "href"
+      },
+
+      "displayed_url": {
+        "description": "Displayed ad URL",
+        "css": "span.x2VHCd",
+        "xpath": ".//span[contains(@class, 'x2VHCd')]",
+        "attribute": "textContent"
+      },
+
+      "description": {
+        "description": "Ad description/copy",
+        "css": "div.yDYNvb.lEBKkf",
+        "xpath": ".//div[contains(@class, 'yDYNvb')]",
+        "attribute": "textContent"
+      },
+
+      "sitelinks": {
+        "description": "Ad sitelink extensions",
+        "css": "a.V6f7qe",
+        "xpath": ".//a[contains(@class, 'V6f7qe')]",
+        "multiple": true
+      }
+    },
+
+    "featured_snippet": {
+      "container": {
+        "description": "Featured snippet box",
+        "css": "div.xpdopen div.ifM9O",
+        "xpath": "//div[contains(@class, 'xpdopen')]//div[contains(@class, 'ifM9O')]",
+        "fallback_css": "div[data-attrid='wa:/description'] span"
+      },
+
+      "content": {
+        "description": "Featured snippet text content",
+        "css": "span.hgKElc",
+        "xpath": ".//span[contains(@class, 'hgKElc')]",
+        "attribute": "textContent"
+      },
+
+      "source_title": {
+        "description": "Source website title",
+        "css": "h3",
+        "xpath": ".//h3",
+        "attribute": "textContent"
+      },
+
+      "source_url": {
+        "description": "Source website URL",
+        "css": "a",
+        "xpath": ".//a",
+        "attribute": "href"
+      }
+    },
+
+    "people_also_ask": {
+      "container": {
+        "description": "People Also Ask section",
+        "css": "div[jsname='yEVEwb'] div[data-sgrd='true']",
+        "xpath": "//div[@jsname='yEVEwb']//div[@data-sgrd='true']",
+        "fallback_css": "div.related-question-pair"
+      },
+
+      "question": {
+        "description": "PAA question text",
+        "css": "span.CSkcDe",
+        "xpath": ".//span[contains(@class, 'CSkcDe')]",
+        "attribute": "textContent"
+      }
+    },
+
+    "local_pack": {
+      "container": {
+        "description": "Local 3-pack container",
+        "css": "div.VkpGBb",
+        "xpath": "//div[contains(@class, 'VkpGBb')]",
+        "fallback_css": "div[data-local-attribute]"
+      },
+
+      "business_name": {
+        "description": "Local business name",
+        "css": "span.OSrXXb",
+        "xpath": ".//span[contains(@class, 'OSrXXb')]",
+        "attribute": "textContent"
+      },
+
+      "rating": {
+        "description": "Local business rating",
+        "css": "span.MW4etd",
+        "xpath": ".//span[contains(@class, 'MW4etd')]",
+        "attribute": "textContent"
+      },
+
+      "category": {
+        "description": "Business category",
+        "css": "span.rllt__details div:first-child",
+        "xpath": ".//span[contains(@class, 'rllt__details')]/div[1]",
+        "attribute": "textContent"
+      },
+
+      "address": {
+        "description": "Business address",
+        "css": "span.rllt__details div:nth-child(2)",
+        "xpath": ".//span[contains(@class, 'rllt__details')]/div[2]",
+        "attribute": "textContent"
+      }
+    },
+
+    "related_searches": {
+      "container": {
+        "description": "Related searches section",
+        "css": "div#botstuff a.k8XOCe",
+        "xpath": "//div[@id='botstuff']//a[contains(@class, 'k8XOCe')]",
+        "fallback_css": "div.AJLUJb a"
+      },
+
+      "query": {
+        "description": "Related search query text",
+        "css": "div.s75CSd",
+        "xpath": ".//div[contains(@class, 's75CSd')]",
+        "attribute": "textContent"
+      }
+    },
+
+    "knowledge_panel": {
+      "container": {
+        "description": "Knowledge panel sidebar",
+        "css": "div.kp-wholepage",
+        "xpath": "//div[contains(@class, 'kp-wholepage')]"
+      },
+
+      "title": {
+        "description": "Knowledge panel title",
+        "css": "h2[data-attrid='title'] span",
+        "xpath": "//h2[@data-attrid='title']//span",
+        "attribute": "textContent"
+      },
+
+      "subtitle": {
+        "description": "Knowledge panel subtitle/type",
+        "css": "div[data-attrid='subtitle'] span",
+        "xpath": "//div[@data-attrid='subtitle']//span",
+        "attribute": "textContent"
+      },
+
+      "description": {
+        "description": "Knowledge panel description",
+        "css": "div[data-attrid='description'] span",
+        "xpath": "//div[@data-attrid='description']//span",
+        "attribute": "textContent"
+      }
+    },
+
+    "pagination": {
+      "next_page": {
+        "description": "Next page link",
+        "css": "a#pnnext",
+        "xpath": "//a[@id='pnnext']",
+        "attribute": "href"
+      },
+
+      "page_numbers": {
+        "description": "Page number links",
+        "css": "table.AaVjTc a.fl",
+        "xpath": "//table[contains(@class, 'AaVjTc')]//a[contains(@class, 'fl')]",
+        "multiple": true
+      },
+
+      "current_page": {
+        "description": "Current page indicator",
+        "css": "table.AaVjTc td.YyVfkd",
+        "xpath": "//table[contains(@class, 'AaVjTc')]//td[contains(@class, 'YyVfkd')]",
+        "attribute": "textContent"
+      }
+    },
+
+    "search_stats": {
+      "results_count": {
+        "description": "Total results count text",
+        "css": "div#result-stats",
+        "xpath": "//div[@id='result-stats']",
+        "attribute": "textContent"
+      }
+    }
+  },
+
+  "wait_conditions": {
+    "results_loaded": {
+      "description": "Wait for search results to load",
+      "css": "div#search",
+      "timeout_seconds": 10
+    },
+    "captcha_check": {
+      "description": "Check for CAPTCHA presence",
+      "css": "form#captcha-form",
+      "timeout_seconds": 2
+    }
+  }
+}

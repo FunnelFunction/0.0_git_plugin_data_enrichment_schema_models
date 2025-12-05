@@ -1,0 +1,49 @@
+{
+  "schema_name": "google_business_profile_schema",
+  "sample_url": "https://www.google.com/maps/place/Miami+Plumbing+Pros/@25.7617,-80.1918,17z",
+  "sample_profile": {
+    "business_name": "Miami Plumbing Pros",
+    "address_full": "1234 Brickell Ave, Miami, FL 33131, USA",
+    "address_street": "1234 Brickell Ave",
+    "address_city": "Miami",
+    "address_state": "FL",
+    "address_zip": "33131",
+    "address_country": "USA",
+    "phone_number": "(305) 555-1234",
+    "website_url": "https://www.miamiplumbingpros.com",
+    "website_display": "miamiplumbingpros.com",
+    "rating_stars": 4.8,
+    "review_count": 342,
+    "price_level": "$$",
+    "category_primary": "Plumber",
+    "categories_all": ["Plumber", "Water heater repair service", "Drain cleaning service"],
+    "hours_status": "Open ⋅ Closes 6 PM",
+    "hours_structured": {
+      "monday": "8:00 AM - 6:00 PM",
+      "tuesday": "8:00 AM - 6:00 PM",
+      "wednesday": "8:00 AM - 6:00 PM",
+      "thursday": "8:00 AM - 6:00 PM",
+      "friday": "8:00 AM - 6:00 PM",
+      "saturday": "9:00 AM - 4:00 PM",
+      "sunday": "Closed"
+    },
+    "hours_special": [],
+    "attributes": {
+      "wheelchair": true,
+      "parking": true,
+      "credit cards": true,
+      "delivery": false
+    },
+    "photos_count": 47,
+    "menu_url": "",
+    "reservation_url": "",
+    "order_url": "",
+    "owner_verified": true,
+    "place_id": "ChIJrTLr-GyuEmsRBfy61i59si0",
+    "plus_code": "76RW+XM Miami, Florida",
+    "latitude": 25.7617,
+    "longitude": -80.1918,
+    "maps_url": "https://www.google.com/maps/place/Miami+Plumbing+Pros/@25.7617,-80.1918,17z/data=!3m1!4b1!4m5!3m4!1s0x88d9b0a20ec8c111:0x4d7e7",
+    "extraction_timestamp": "2025-01-01T12:00:00Z"
+  }
+}

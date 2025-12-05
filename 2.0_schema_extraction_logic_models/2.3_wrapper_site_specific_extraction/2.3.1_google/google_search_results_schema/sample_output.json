@@ -1,0 +1,107 @@
+{
+  "schema_name": "google_search_results_schema",
+  "sample_query": "plumbers miami",
+  "sample_results": {
+    "query": "plumbers miami",
+    "search_url": "https://www.google.com/search?q=plumbers+miami&num=10",
+    "results_count_text": "About 12,500,000 results (0.52 seconds)",
+    "results_count_estimated": 12500000,
+    "current_page": 1,
+    "organic_results": [
+      {
+        "position": 1,
+        "title": "Top 10 Best Plumbers in Miami, FL - Yelp",
+        "url": "https://www.yelp.com/search?cflt=plumbing&find_loc=Miami%2C+FL",
+        "displayed_url": "https://www.yelp.com › search",
+        "description": "Top 10 Best Plumbers in Miami, FL · Falcon Plumbing · Plumb Pro · Miami 305 Plumbing · Rescue Rooter · Hernandez Plumbing · Premier Plumbing...",
+        "date_published": "",
+        "rich_snippet": {
+          "rating": "4.5",
+          "review_count": "Based on 500+ reviews"
+        }
+      },
+      {
+        "position": 2,
+        "title": "Miami Plumbing Services | Licensed & Insured Plumbers",
+        "url": "https://www.miamiplumbingservices.com/",
+        "displayed_url": "https://www.miamiplumbingservices.com",
+        "description": "Professional plumbing services in Miami. 24/7 emergency plumbers available. Drain cleaning, water heater repair, leak detection. Call now for free estimate.",
+        "date_published": "",
+        "rich_snippet": {}
+      },
+      {
+        "position": 3,
+        "title": "20 Best Plumbers in Miami FL | HomeAdvisor",
+        "url": "https://www.homeadvisor.com/c.Plumbing.Miami.FL.-12086.html",
+        "displayed_url": "https://www.homeadvisor.com › ... › Florida › Miami",
+        "description": "Find the best plumbers in Miami, FL. Compare ratings, reviews and pricing from trusted local plumbing contractors.",
+        "date_published": "Dec 15, 2024",
+        "rich_snippet": {
+          "rating": "4.7"
+        }
+      }
+    ],
+    "ads_top": [
+      {
+        "position": 1,
+        "title": "Miami's #1 Plumbers - Same Day Service Available",
+        "url": "https://www.adexample.com/miami-plumbers",
+        "displayed_url": "www.adexample.com/plumbers",
+        "description": "Licensed & Insured. 24/7 Emergency Service. Free Estimates. Call Now!",
+        "ad_extensions": ["Water Heater Repair", "Drain Cleaning", "Leak Detection"]
+      }
+    ],
+    "ads_bottom": [],
+    "featured_snippet": {
+      "content": "The average cost of hiring a plumber in Miami ranges from $150 to $450 for common repairs. Emergency plumbing services typically cost $200-$500 for after-hours calls.",
+      "source_title": "HomeGuide - Plumber Cost Guide",
+      "source_url": "https://homeguide.com/costs/plumber-cost"
+    },
+    "people_also_ask": [
+      "How much does a plumber charge per hour in Miami?",
+      "What is the best plumbing company in Miami?",
+      "Do I need a permit for plumbing work in Miami-Dade?",
+      "How do I find a reliable plumber near me?"
+    ],
+    "related_searches": [
+      "24 hour plumber miami",
+      "plumber miami beach",
+      "cheap plumber miami",
+      "emergency plumber miami",
+      "plumber near me",
+      "plumber miami lakes",
+      "best rated plumbers miami",
+      "plumber coral gables"
+    ],
+    "local_pack": [
+      {
+        "position": 1,
+        "business_name": "Falcon Plumbing",
+        "rating": 4.9,
+        "review_count": 234,
+        "category": "Plumber",
+        "address": "Miami, FL"
+      },
+      {
+        "position": 2,
+        "business_name": "Miami 305 Plumbing",
+        "rating": 4.8,
+        "review_count": 189,
+        "category": "Plumber",
+        "address": "Miami, FL"
+      },
+      {
+        "position": 3,
+        "business_name": "Rescue Rooter Miami",
+        "rating": 4.7,
+        "review_count": 156,
+        "category": "Plumber",
+        "address": "Miami, FL"
+      }
+    ],
+    "knowledge_panel": null,
+    "has_next_page": true,
+    "next_page_url": "https://www.google.com/search?q=plumbers+miami&start=10",
+    "extraction_timestamp": "2025-01-01T12:00:00Z"
+  }
+}

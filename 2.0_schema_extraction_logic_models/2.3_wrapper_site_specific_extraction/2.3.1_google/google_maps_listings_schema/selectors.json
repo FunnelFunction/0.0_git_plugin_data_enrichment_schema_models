@@ -1,0 +1,180 @@
+{
+  "schema_name": "google_maps_listings_schema",
+  "schema_version": "1.0.0",
+  "last_updated": "2025-01-01",
+  "platform": "Google Maps",
+  "execution_model": "1.2_dynamic_browser_javascript_render_model",
+
+  "selectors": {
+    "listing_container": {
+      "description": "Container for each business listing in search results",
+      "css": "div[role='feed'] > div > div[jsaction]",
+      "xpath": "//div[@role='feed']/div/div[@jsaction]",
+      "fallback_css": "div.Nv2PK",
+      "fallback_xpath": "//div[contains(@class, 'Nv2PK')]"
+    },
+
+    "business_name": {
+      "description": "Business name text",
+      "css": "div.qBF1Pd.fontHeadlineSmall",
+      "xpath": "//div[contains(@class, 'qBF1Pd') and contains(@class, 'fontHeadlineSmall')]",
+      "fallback_css": "a[aria-label] > div > div > div.fontHeadlineSmall",
+      "attribute": "textContent"
+    },
+
+    "rating_stars": {
+      "description": "Star rating value",
+      "css": "span.MW4etd",
+      "xpath": "//span[contains(@class, 'MW4etd')]",
+      "attribute": "textContent",
+      "transform": "parseFloat"
+    },
+
+    "review_count": {
+      "description": "Number of reviews in parentheses",
+      "css": "span.UY7F9",
+      "xpath": "//span[contains(@class, 'UY7F9')]",
+      "attribute": "textContent",
+      "transform": "extractNumber",
+      "pattern": "\\(([\\d,]+)\\)"
+    },
+
+    "category": {
+      "description": "Business category/type",
+      "css": "div.W4Efsd > div.W4Efsd > span:first-child > span",
+      "xpath": "//div[contains(@class, 'W4Efsd')]/div[contains(@class, 'W4Efsd')]/span[1]/span",
+      "fallback_css": "button[jsaction*='category'] > div",
+      "attribute": "textContent"
+    },
+
+    "address_full": {
+      "description": "Full address string",
+      "css": "div.W4Efsd > div.W4Efsd:nth-child(2) > span:nth-child(2) > span:nth-child(2)",
+      "xpath": "//div[contains(@class, 'W4Efsd')]/div[contains(@class, 'W4Efsd')][2]/span[2]/span[2]",
+      "attribute": "textContent"
+    },
+
+    "phone_number": {
+      "description": "Phone number",
+      "css": "span.UsdlK",
+      "xpath": "//span[contains(@class, 'UsdlK')]",
+      "fallback_pattern": "\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}",
+      "attribute": "textContent"
+    },
+
+    "website_url": {
+      "description": "Business website URL",
+      "css": "a[data-value='Website']",
+      "xpath": "//a[@data-value='Website']",
+      "attribute": "href"
+    },
+
+    "hours_status": {
+      "description": "Current open/closed status",
+      "css": "span.ZDu9vd > span",
+      "xpath": "//span[contains(@class, 'ZDu9vd')]/span",
+      "attribute": "textContent"
+    },
+
+    "listing_link": {
+      "description": "Link to full listing details",
+      "css": "a.hfpxzc",
+      "xpath": "//a[contains(@class, 'hfpxzc')]",
+      "attribute": "href"
+    },
+
+    "place_id": {
+      "description": "Google Place ID extracted from URL",
+      "source": "listing_link",
+      "pattern": "place/[^/]+/([^/]+)",
+      "transform": "regex_extract"
+    },
+
+    "coordinates": {
+      "description": "Latitude and longitude from URL",
+      "source": "listing_link",
+      "pattern": "@(-?\\d+\\.\\d+),(-?\\d+\\.\\d+)",
+      "transform": "regex_extract_groups"
+    }
+  },
+
+  "detail_page_selectors": {
+    "description": "Selectors for individual business detail pages",
+
+    "business_name_detail": {
+      "css": "h1.DUwDvf.lfPIob",
+      "xpath": "//h1[contains(@class, 'DUwDvf')]",
+      "attribute": "textContent"
+    },
+
+    "address_detail": {
+      "css": "button[data-item-id='address'] > div > div:nth-child(2) > div",
+      "xpath": "//button[@data-item-id='address']//div[contains(@class, 'fontBodyMedium')]",
+      "attribute": "textContent"
+    },
+
+    "phone_detail": {
+      "css": "button[data-item-id*='phone'] > div > div:nth-child(2) > div",
+      "xpath": "//button[contains(@data-item-id, 'phone')]//div[contains(@class, 'fontBodyMedium')]",
+      "attribute": "textContent"
+    },
+
+    "website_detail": {
+      "css": "a[data-item-id='authority'] > div > div:nth-child(2) > div",
+      "xpath": "//a[@data-item-id='authority']//div[contains(@class, 'fontBodyMedium')]",
+      "attribute": "textContent"
+    },
+
+    "hours_table": {
+      "css": "table.eK4R0e.fontBodyMedium tr",
+      "xpath": "//table[contains(@class, 'eK4R0e')]//tr",
+      "attribute": "innerHTML",
+      "multiple": true
+    },
+
+    "rating_detail": {
+      "css": "div.F7nice > span:first-child > span",
+      "xpath": "//div[contains(@class, 'F7nice')]/span[1]/span",
+      "attribute": "textContent"
+    },
+
+    "review_count_detail": {
+      "css": "div.F7nice > span:nth-child(2) > span > span",
+      "xpath": "//div[contains(@class, 'F7nice')]/span[2]/span/span",
+      "attribute": "textContent",
+      "transform": "extractNumber"
+    },
+
+    "price_level": {
+      "css": "span[aria-label*='Price']",
+      "xpath": "//span[contains(@aria-label, 'Price')]",
+      "attribute": "textContent"
+    },
+
+    "plus_code": {
+      "css": "button[data-item-id='oloc'] > div > div:nth-child(2) > div",
+      "xpath": "//button[@data-item-id='oloc']//div[contains(@class, 'fontBodyMedium')]",
+      "attribute": "textContent"
+    }
+  },
+
+  "wait_conditions": {
+    "listings_loaded": {
+      "description": "Wait for listings feed to populate",
+      "css": "div[role='feed'] > div",
+      "timeout_seconds": 10
+    },
+    "detail_loaded": {
+      "description": "Wait for detail panel to load",
+      "css": "h1.DUwDvf",
+      "timeout_seconds": 10
+    }
+  },
+
+  "scroll_config": {
+    "scroll_container": "div[role='feed']",
+    "scroll_increment_px": 500,
+    "scroll_delay_ms": 1000,
+    "max_scrolls": 20
+  }
+}
